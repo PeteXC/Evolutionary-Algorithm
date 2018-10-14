@@ -9,12 +9,29 @@ const gRandomString = (length) => {
     return text;
 }
 
+const gFitness = (string) => {
+    let fit = 0;
+    for (let i = 0; i < target.length; i++) {
+        if (target[i] === string[0]) {
+            fit += 1;
+        }
+    }
+    return fit;
+}
+
 const gRandomCohort = (size) => {
-    var cohort = {};
+    let cohort = {};
     for (let i = 0; i < size; i++) {
-        cohort[i] = {id: i, string: gRandomString(28)};
+        let h_string = gRandomString(28);
+        cohort[i] = {id: i, string: h_string, fitness: gFitness(h_string)};
     }
     return cohort;
 }
 
-console.log(gRandomCohort(12));
+const main = () => {
+
+    console.log(gRandomCohort(12));
+
+}
+
+main();
